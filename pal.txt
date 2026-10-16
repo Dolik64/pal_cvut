@@ -1,0 +1,2118 @@
+
+Swimming Pools Delivery Company Quandaries
+
+Swimming Pools Delivery Company plans to build its depot at one of the street crossings in the town. All swimming pools the company sells will be stored in the depot. There, each pool will be loaded on a truck and delivered to the customer. A company truck can carry only one pool and it typically returns empty from the customer. The transport of the pools on a sizeable truck through narrow and steep streets is often tricky. Some streets have to be treated as strictly one-way streets.
+To simplify their analysis of the transport conditions, the company analysts have finally decided to think only in the terms of one-way streets and to consider any two-way street as a pair of two separate one-way streets in opposite directions.
+Current company analysis of transport conditions in the city is presented below. It introduces a few more specific terms. It is hoped that these terms will help company to describe and to solve transport problems in an effective way.
+
+A street, for a company analyst, is any stretch of road which begins at one crossing, ends at another crossing (the order of crossings defines the direction of the street) and which does not pas through any other crossing.
+The existence of many one-way streets has another limiting effect, due to which some streets are identified as so-called weak streets.
+When a truck enters a weak street, it cannot drive back to the depot, following only the accepted directions of the streets. To return to the depot, the truck would need to pass through at least one street in the direction oposite to its accepted direction and such drive is not deemed safe.
+A crossing is a weak crossing if at least one weak street begins at that crossing. All other crossings in the city are called strong crossings.
+A connection from crossing A to crossing B is a sequence of consecutive streets a truck passes on its journey from crossing A to crossing B.
+The length of a connection is the number of streets the truck passes on its way from the start of the connection to its end.
+A strong connection from one strong crossing to another is a connection which passes only through strong crossings and which passes through minimum possible number of streets. Strong connections are preferred by the company. They are reasonably short and eliminate the risk of entering a weak road by an accidental wrong turn at some crossing.
+Consider any strong crossing X. Another strong crossing Y is called a target for X if there exists a strong connection from X to Y and also a strong connection from Y to X.
+The term variability of a strong crossing X denotes the number of targets of X.
+Let crossing Y be a target for X. The cost of Y is a number which is equal to twice the length of the strong connection from X to Y plus the length of the strong connection from Y to X. The cost reflects the situation when a loaded truck drives from X to Y, unloads at Y and returns empty to X. In particular, a journey with a pool to a customer is more demanding than the journey back with an empty truck.
+The cost of a strong crossing X is equal to the sum of the costs of all targets for X.
+When there is no target for a particular strong crossing X then both the variability and the cost of X are zeros.
+A prospective crossing is a strong crossing which variability is maximum and its cost is minimum among all strong crossings with maximum variability.
+
+The company wants to choose one of the prospective crossings in the city to build its depot there.
+
+
+
+Figure 1. A scheme of streets. Crossings are represented as nodes, streets as directed edges. There are 17 crossings and 27 streets. There are two prospective crossings, namely 4 and 11. Their variability is 3 and their cost is 13. The variability of crossings 3, 5, 6, 12, 14, 15 is also 3, however, their costs are higher than 13. Namely, the costs are 18, 18, 14, 18, 14, 18 (in the same order). Apart from crossings mentioned so far, there are three other strong crossings 8, 9 and 16, in the scheme. The variability of crossings 8 and 9 is only 1 (and cost is 3 in both cases). The variability and the cost of crossing 16 are both 0. The scheme illustrates Example 1 below.
+The task
+
+You are given the list of all streets in the town. Calculate the total number of prospective crossings and the variability and the cost of each of them.
+Input
+
+The first input line contains two positive integers N, M, where N is the number of crossings, M is the number of streets. The crossings are labeled by integers 0, 1, ..., N−1. The list of all streets is on the next M lines. Each of those lines contains two integers separated by space, the first integer denotes the label of the start crossing and the second integer denotes the label of the end crossing of the street. The order of the streets in the list is arbitrary.
+The value of N does not exceed 3×103, the value of M does not exceed 106.
+Output
+
+The output contains one text line with three integers separated by space and representing the number of prospective crossings in the town and the variability and the cost of each of them.
+Example 1
+Input
+
+17 27
+0 1
+1 0
+3 6
+6 4
+4 5
+4 3
+5 6
+7 8
+8 7
+8 9
+9 8
+9 10
+10 8
+11 12
+12 13
+13 14
+15 14
+11 15
+12 14
+14 11
+13 16
+13 6
+10 6
+7 11
+2 3
+1 2
+0 7
+
+Output
+
+2 3 13
+
+The data of Example 1 is depicted in Figure 1. 		
+Example 2
+Input
+
+8 12
+0 1
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+7 0
+1 3
+3 5
+5 7
+7 1
+
+Output
+
+4 7 48
+
+	
+Example 3
+Input
+
+9 11
+0 2
+1 2
+2 3
+3 4
+4 2
+4 5
+4 6
+5 7
+5 6
+6 7
+7 8
+
+Output
+
+3 0 0
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to the public data set
+
+
+
+
+
+
+Swimming Pools Delivery Company Quandaries
+
+Swimming Pools Delivery Company plans to build its depot at one of the street crossings in the town. All swimming pools the company sells will be stored in the depot. There, each pool will be loaded on a truck and delivered to the customer. A company truck can carry only one pool and it typically returns empty from the customer. The transport of the pools on a sizeable truck through narrow and steep streets is often tricky. Some streets have to be treated as strictly one-way streets.
+To simplify their analysis of the transport conditions, the company analysts have finally decided to think only in the terms of one-way streets and to consider any two-way street as a pair of two separate one-way streets in opposite directions.
+Current company analysis of transport conditions in the city is presented below. It introduces a few more specific terms. It is hoped that these terms will help company to describe and to solve transport problems in an effective way.
+
+A street, for a company analyst, is any stretch of road which begins at one crossing, ends at another crossing (the order of crossings defines the direction of the street) and which does not pas through any other crossing.
+The existence of many one-way streets has another limiting effect, due to which some streets are identified as so-called weak streets.
+When a truck enters a weak street, it cannot drive back to the depot, following only the accepted directions of the streets. To return to the depot, the truck would need to pass through at least one street in the direction oposite to its accepted direction and such drive is not deemed safe.
+A crossing is a weak crossing if at least one weak street begins at that crossing. All other crossings in the city are called strong crossings.
+A connection from crossing A to crossing B is a sequence of consecutive streets a truck passes on its journey from crossing A to crossing B.
+The length of a connection is the number of streets the truck passes on its way from the start of the connection to its end.
+A strong connection from one strong crossing to another is a connection which passes only through strong crossings and which passes through minimum possible number of streets. Strong connections are preferred by the company. They are reasonably short and eliminate the risk of entering a weak road by an accidental wrong turn at some crossing.
+Consider any strong crossing X. Another strong crossing Y is called a target for X if there exists a strong connection from X to Y and also a strong connection from Y to X.
+The term variability of a strong crossing X denotes the number of targets of X.
+Let crossing Y be a target for X. The cost of Y is a number which is equal to twice the length of the strong connection from X to Y plus the length of the strong connection from Y to X. The cost reflects the situation when a loaded truck drives from X to Y, unloads at Y and returns empty to X. In particular, a journey with a pool to a customer is more demanding than the journey back with an empty truck.
+The cost of a strong crossing X is equal to the sum of the costs of all targets for X.
+When there is no target for a particular strong crossing X then both the variability and the cost of X are zeros.
+A prospective crossing is a strong crossing which variability is maximum and its cost is minimum among all strong crossings with maximum variability.
+
+The company wants to choose one of the prospective crossings in the city to build its depot there.
+
+
+
+Figure 1. A scheme of streets. Crossings are represented as nodes, streets as directed edges. There are 17 crossings and 27 streets. There are two prospective crossings, namely 4 and 11. Their variability is 3 and their cost is 13. The variability of crossings 3, 5, 6, 12, 14, 15 is also 3, however, their costs are higher than 13. Namely, the costs are 18, 18, 14, 18, 14, 18 (in the same order). Apart from crossings mentioned so far, there are three other strong crossings 8, 9 and 16, in the scheme. The variability of crossings 8 and 9 is only 1 (and cost is 3 in both cases). The variability and the cost of crossing 16 are both 0. The scheme illustrates Example 1 below.
+The task
+
+You are given the list of all streets in the town. Calculate the total number of prospective crossings and the variability and the cost of each of them.
+Input
+
+The first input line contains two positive integers N, M, where N is the number of crossings, M is the number of streets. The crossings are labeled by integers 0, 1, ..., N−1. The list of all streets is on the next M lines. Each of those lines contains two integers separated by space, the first integer denotes the label of the start crossing and the second integer denotes the label of the end crossing of the street. The order of the streets in the list is arbitrary.
+The value of N does not exceed 3×103, the value of M does not exceed 106.
+Output
+
+The output contains one text line with three integers separated by space and representing the number of prospective crossings in the town and the variability and the cost of each of them.
+Example 1
+Input
+
+17 27
+0 1
+1 0
+3 6
+6 4
+4 5
+4 3
+5 6
+7 8
+8 7
+8 9
+9 8
+9 10
+10 8
+11 12
+12 13
+13 14
+15 14
+11 15
+12 14
+14 11
+13 16
+13 6
+10 6
+7 11
+2 3
+1 2
+0 7
+
+Output
+
+2 3 13
+
+The data of Example 1 is depicted in Figure 1. 		
+Example 2
+Input
+
+8 12
+0 1
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+7 0
+1 3
+3 5
+5 7
+7 1
+
+Output
+
+4 7 48
+
+	
+Example 3
+Input
+
+9 11
+0 2
+1 2
+2 3
+3 4
+4 2
+4 5
+4 6
+5 7
+5 6
+6 7
+7 8
+
+Output
+
+3 0 0
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to the public data set
+
+
+
+
+
+
+
+
+Network Software Transfer
+
+The university is currently transferring its research software from the old campus to the new campus.
+Each server in the new campus falls into one the two categories - fast or slow.
+There is a specific signal delay between any two directly connected servers in the new campus.
+Total delay in a part of the network is equal to the sum of delays between all pairs of directly connected servers in that part.
+The biological experiments managing software (BEMS) was tailored to the network topology of the servers in the old campus. When BEMS is transferred to the new network, it will use only part of the new network, and the topology of that part must be identical to the topology of the original network.
+From the point of view of BEMS, for each server X in the old network there will be exactly one server in the new network, denoted as a X counterpart.
+The set of counterparts of all servers in the old network, together with all direct connections between these counterpart servers, is denoted as counterpart network.
+To help the administrators to select the servers in the counterpart network, the following rules were specified.
+
+    For any two different servers in the old network, their counterparts in the new network will be different.
+    Whenever two servers are directly connected in the old network, their counterparts must be directly connected in the new network.
+    Whenever two servers are not directly connected in the old network, their counterparts must not be directly connected in the new network as well.
+    A counterpart network is considered to be optimal if it contains maximum number of fast servers, and also its total delay is minimum among all counterpart networks with the maximum number of fast servers. 
+
+
+
+Figure 1. Two example schemes of old and new campus networks with the fast servers highlighted in black and with the connections of the optimal counterpart network highlighted in orange color. In example a), the optimal counterpart network contains 4 out of 5 fast servers and the total delay in it is equal to 55. In example b), the optimal counterpart network contains 4 out of 7 fast servers and the total delay in it is equal to 35. Note that, for example, the optimal counterpart network cannot contain servers 11 and 12 instead of servers 1 and 2. The number of fast servers would be the same, the total delay would be only 31. However, such counterpart network would violate rule 3, because directly connected servers 12 and 13 would be the counterparts of servers 5 and 6 in the old network, and those are not directly connected.
+The schemes a) and b) illustrate Example 1 and 2 below.
+The task
+
+You are given the topology of both campus networks, old and new, the list of fast servers and the delays between directly connected servers. Find the number of fast servers and the total delay in an optimal counterpart network of the old campus network.
+Input
+
+The first input line contains two positive integers N1, M1, the number of servers and the number of direct connections between pairs of servers in the old campus network. The servers are labeled by integers 0, 1, ..., N1−1. Next M1 lines describe direct connections in the old campus network. Each line specifies one direct connection by the labels, separated by space, of its end servers.
+Next, there is a line with two positive integers N2, M2, F2, the number of servers, the number of direct connections between pairs of servers, and the number of fast servers in the new campus network. The servers are labeled by integers 0, 1, ..., N2−1. The next line contains the list of labels of the fast servers, it is presented as F2 integers separated by spaces. Next M2 lines describe direct connections in the new campus network. Each line specifies one direct connection by three integers separated by spaces. The first two integers are the labels of the end servers of the connection, the third integer is the signal time delay along the direct connection between these two servers.
+It holds, 2 ≤ N1 ≤ 10,   2 ≤ M1 ≤ 40,   5 ≤ N2 ≤ 30,   5 ≤ M2 ≤ 350,   1 ≤ F2 ≤ N2.
+Output
+
+The output contains one text line with two integers separated by space, the number of fast servers and the total delay in an optimal counterpart network.
+Example 1
+Input
+
+5 5
+0 2
+0 3
+1 2
+2 3
+3 4
+10 18 5
+2 4 6 8 9
+0 1 1
+1 2 1
+2 3 2
+3 4 3
+4 5 4
+5 6 5
+6 7 6
+7 8 7
+8 0 8
+1 8 9
+2 4 10
+5 7 11
+9 1 12
+9 2 13
+9 4 14
+9 5 15
+9 7 16
+9 8 17
+
+Output
+
+4 55
+
+The data of Example 1 is depicted in Figure 1 a). 		
+Example 2
+Input
+
+8 9
+0 1
+1 2
+2 3
+4 5
+6 7
+0 4
+1 5
+2 6
+3 7
+15 22 7
+1 3 5 7 9 11 13
+0 1 5
+1 2 3
+2 3 7
+3 4 2
+5 6 8
+6 7 5
+7 8 2
+8 9 4
+10 11 5
+11 12 1
+12 13 6
+13 14 3
+0 5 4
+5 10 2
+1 6 9
+6 11 2
+2 7 1
+7 12 6
+3 8 8
+8 13 4
+4 9 7
+9 14 4
+
+Output
+
+4 35
+
+The data of Example 2 is depicted in Figure 1 b). 	
+Example 3
+Input
+
+10 9
+0 1
+1 2
+2 3
+3 4
+4 5
+5 6
+6 7
+7 8
+8 9
+15 22 7
+1 3 5 7 9 11 13
+0 1 5
+1 2 3
+2 3 7
+3 4 2
+5 6 8
+6 7 5
+7 8 2
+8 9 4
+10 11 5
+11 12 1
+12 13 6
+13 14 3
+0 5 4
+5 10 2
+1 6 9
+6 11 2
+2 7 1
+7 12 6
+3 8 8
+8 13 4
+4 9 7
+9 14 4
+
+Output
+
+5 29
+
+
+In Example 3, the new network is identical to the new network in Example 2. The old network topology is a path, with no branches, from server 0 to server 9. The counterpart servers in the optimal counterpath network form a path containing servers 11, 10, 5, 0, 1, 2, 7, 8, 13, 14, in this order in the new network.
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to the public data set
+
+
+
+
+
+Counting Lehmer generators
+
+Let a Lehmer generator xn+1 = R*xn mod M be represented by tuple (M, R). It is known that its period is maximal if M is a prime and R is a primitive root modulo M.
+For a positive integer K, let PF(K) be the set of all prime factors of K. A primitive root R modulo M can be characterized in two ways:
+
+    Every positive integer less than M is congruent to some power of R modulo M. This is the standard definition.
+    R(M−1)/p is not congruent to 1 mod M for all p ∈ PF(M−1).
+
+The second characterization is useful for a fast computational test whether a given number is a primitive root modulo M. We can see that it can be evaluated quickly especially when PF(M−1) consists of a small number of primes. Based on empirical observations, the existence of a primitive root R modulo M with a value very small relative to M can also be expected in this case.
+
+The task
+
+For given two integers Mmax and D, find all Lehmer generators (M, R) satisfying
+
+    M is a prime not greater than Mmax,
+    PF(M−1) is nonempty and contains only primes not greater than D,
+    R is the smallest primitive root modulo M.
+
+Input
+
+The input consists of one line which contains integers Mmax and D separated by space.
+It holds 3 ≤ Mmax ≤ 4×1014 and 3 ≤ D ≤ 40.
+Output
+
+The output consists of one line containing integers L and Rmax separated by space, where L is the number of feasible Lehmer generators and Rmax is the maximum among their primitive roots R.
+Example 1
+Input
+
+10 3
+
+Output
+
+3 3
+
+The three feasible Lehmer generators are as follows:
+
+    M=1+2=3, R=2
+    M=1+22=5, R=2
+    M=1+2*3=7, R=3
+
+Example 2
+Input
+
+20 5
+
+Output
+
+7 3
+
+The seven feasible Lehmer generators are as follows:
+
+    M=1+2=3, R=2
+    M=1+22=5, R=2
+    M=1+2*3=7, R=3
+    M=1+2*5=11, R=2
+    M=1+22*3=13, R=2
+    M=1+24=17, R=3
+    M=1+2*32=19, R=2
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+
+Lexicographically Smallest Word
+
+
+
+Figure 1. An example of NFA A with 13 states, over alphabet {a, b, c}. The lexicographically smallest word among all shortest words, which are accepted by A and which contain the string ab as a substring, is the word W = acabc. The sequence of transitions leading to W being accepted by A is highlighted. The image illustrates Example 1 below.
+The task
+
+There is a non-deterministic finite automaton (NFA) A over a short alphabet Σ. There is also an unempty string S over the same alphabet. The task is to find the lexicographically smallest word among all shortest words which are accepted by A and which contain S as a substring.
+Input
+
+The first line contains two positive integers N, M separated by space and representing (in this order) the number of states in NFA A and the size of the alphabet Σ. The states of A are labeled 0, 1, ..., N−1.
+Next, there are N lines specifying the transition table of A. Each line represents one state. A line starts with the label of the state and a mark which says whether the state is final or not. The mark is either '−' (minus sign) or 'F', final states are marked by 'F', all other states are marked by '−' (minus sign). Next, the line contains all characters of Σ listed in ascending order. Each character is followed by a list of states to which A may transit from the current state after reading the corresponding character. The list is not sorted and may be empty. All values on a line are separated by one or more spaces, a line may also contain one or more leading spaces (for better visual perception). The states of A are listed in ascending order of their labels, the state labeled 0 is the start state of A.
+The last line of input contains an unempty word S over Σ.
+The size M of alphabet Σ is at most 5 and Σ consists of M consecutive lower characters of English alphabet, always starting from 'a'.
+The value of N does not not exceed 2000, the length of S is at most 10. The number of transitions in A does not exceed 20000.
+Output
+
+The output consists of one line containing one string representing the lexicographically smallest word among all shortest words which are accepted by A and which contain S as a substring.
+The existence of solution is guaranteed for each automaton in the problem data sets.
+Note that a word may be its own substring.
+Example 1
+Input
+
+13 3
+ 0 -  a 1    b 3   c
+ 1 -  a 2 5  b     c 4
+ 2 F  a      b     c
+ 3 -  a      b     c 4
+ 4 -  a 5 7  b     c
+ 5 -  a 8    b 6   c
+ 6 -  a      b     c 9
+ 7 -  a 8    b 10  c
+ 8 F  a      b 9   c
+ 9 -  a 11   b     c
+10 -  a      b 12  c 11
+11 -  a      b 3   c
+12 F  a      b     c
+ab
+
+Output
+
+acabb
+
+Example 2
+Input
+
+18 4
+ 0 F   a 1 2 3     b     c     d
+ 1 F   a 4         b 4   c     d
+ 2 F   a 4         b     c 4   d
+ 3 F   a 4         b     c     d 4
+ 4 F   a 5 6 7     b     c     d
+ 5 -   a 8         b 8   c     d
+ 6 -   a 8         b     c 8   d
+ 7 -   a 8         b     c     d 8
+ 8 -   a 9 10 11   b     c     d
+ 9 -   a 12        b 12  c     d
+10 -   a 12        b     c 12  d
+11 -   a 12        b     c     d 12
+12 -   a 13 14 15  b     c     d
+13 -   a 16        b 16  c     d
+14 -   a 16        b     c 16  d
+15 -   a 16        b     c     d 16
+16 -   a 17        b     c     d 17
+17 F   a           b     c     d
+aba
+
+Output
+
+aaaaaaaba
+
+Example 3
+Input
+
+6 5
+0 -     a     b     c     d 1   e
+1 F     a     b 4   c     d     e 2
+2 -     a     b     c     d     e 3
+3 -     a 4   b     c     d     e
+4 -     a     b 5   c     d     e
+5 -     a     b     c 0   d     e
+abcde
+
+Output
+
+deeabcdeeabcd
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+
+Optimal Chain Cutting
+
+Chain production department (CPD) has been asked to deliver a non-standard specimen of a chain.
+Chains produced by CPD are made of links of different sizes. This unusual feature simplifies tracking of their movement, when they are operated in heavy industry automatized environments which depend on reliable computer image recognition. The demand specifies exact sequence of link sizes in the finished product.
+Currently, the machinery at CPD produces only one type of chain which may be subsequently modified to fit other demanded specimen parameters. It is called standard chain. This chain type has fixed length and also the sequence of sizes of all links in the chain is fixed. It clearly does not match the demand. It is longer, and the sequence of link sizes is different.
+
+Engineers at CPD can utilize three approved chain operations to construct the demanded chain.
+The Cut out operation produces a piece of chain of arbitrary length by cutting it out from a standard chain produced by CPD. It is a heavy cut and it has to be done by machinery belonging to another department in the factory. Although the cost of this operation is effectively zero to CPD, the remaining part(s) of the original chain is claimed by the other department and CPD looses any access to it.
+The Clip operation is more sophisticated. It disconnects a chain at two different places, each time between two joined links. It then disposes of the chain piece located between those two places and merges together the remaining two parts of the chain by joining the two links which were disconnected from the removed part. The cost of the operation is equal to the sum of sizes of the two disconnected links in the removed part, multiplied by the so-called Clip factor, which is a small integer number. The machine performing Clip operation is quite sensitive and it can remove even a single link from a chain. In such case, the cost is equal only to the size of the removed link multiplied by the Clip factor.
+The Replace operation removes a single link from a chain and substitutes it (at the same place in the chain) by a link of different size. The cost of one substitution is equal to the difference of sizes of the two involved links, multiplied by the so-called Replacement factor. All sizes of replacement links are always available.
+None of the Clip or the Replace operations can be applied to the whole standard chain produced by CPD, the chain is too heavy for the machines.
+
+With the help of the given operations, CPD can meet the demand. They can produce a standard chain, cut out from it a piece of demanded length and then replace in it one link after another, until the result matches perfectly the demand. Also, in a more clever scenario, CPD may first cut out a longer piece of chain than it is demanded, and then reduce replacement costs by applying Clip operation one or more times at strategically selected places in the cut out chain.
+
+The machine performing Clip operations has important limitations. It can remove from a chain only such shorter piece which it is preprogrammed to recognize. The description of each recognized chain piece is called a Clip scheme and it is stored in the machine in the form of complete sequence of link sizes in the piece. The removed piece must match exactly, link after link, one of these descriptions.
+
+It is obvious to the engineers at CPD, that the costs of different scenarios are different and that the cost of producing the demanded chain should be minimized by a selection of an appropriate piece of the standard chain, followed by a sequence of appropriately chosen Clip and Replace operations. that there should be a sequence of Clip and Replace operations which minimizes the cost of producing the demanded chain, when a suitable piece of chain is cut out from a standard chain.
+
+Each chain and a piece of chain involved in the process has defined front end and rear end. The shape of the chain links is asymmetrical and thus a reversed chain or its piece cannot be utilized in any way.
+
+
+Figure 1. An example of the problem and its solution. The demanded chain and the standard chain produced at CPD are depicted at the top. Available clip schemes are depicted on the left. The sizes of chain links are written above or below the links. The front ends of chains are their left ends in the image. A sequence of applied operations on the selected part of the standard chain is depicted in the middle, from top to bottom. The operations result at the bottom matches the demand exactly. The total cost of the operations depends on the values of the Clip and Replacement factors. When these are equal to 1 and 5, respectively, the depicted sequence of operations yields a minimum total cost equal to 17. Note that one of the Clip schemes remains unused. There is another sequence of operations which yields the same cost. It processes the piece of original chain at positions from 10 to 16 (position indexes are 1-based). The depiction illustrates Example 1 below.
+The task
+
+You are given the description of the current chain type produced by CPD, the description of the demanded chain and the list of descriptions of all chain specimens in the depot. Also, you are given the values of the Clip and Replacement factors. Calculate the minimum cost of producing the demanded chain.
+Coding scheme
+For simplicity, all link sizes, which are 1, 2, 3, ..., 20 are coded by small characters of English alphabet a, b, c, ..., t.
+Any chain is represented as a sequence of characters coding the link sizes in the chain, from the front end of the chain.
+
+The exact sequence of link sizes in the standard chain is generated by a Code matrix which is a rectangular array of characters. Each cell in a Code matrix contains a single character.
+A path in the matrix is a sequence of cells in the matrix. The first cell on a path may be any cell in the matrix top row. Each subsequent cell on the path lies in the subsequent row and it is adjacent to the previous cell in the path either vertically (the cells share borders) or diagonally (the cells share one corner). Note that the length of all paths in the matrix is the same and it is equal to the number of rows in the matrix.
+A path p1 is smaller than another path p2 when either the start of p1 lies to the left of the start of p2, or when initials parts of p1 and p2 coincide down to a row k, and then on the row k+1, the cell in p1 lies to the left of the cell in p2.
+The contents of the path is the sequence of characters in the cells forming the path, arranged in the same order.
+The standard chain description is equal to the contents of all different paths listed in ascending order of the paths.
+For example, in the matrix
+
+ab
+cd
+ef
+
+there are 8 different paths, each of length 3. Their contents, in ascending order of the paths are:
+
+ace acf ade adf bce bcf bde bdf
+
+The standard chain description coded by the matrix is the same character sequence, only with spaces removed:
+
+aceacfadeadfbcebcfbdebdf
+
+Coding scheme is highly effective, a Code matrix of size 10 × 10 describes a chain with 1369460 links.
+Input
+
+The first line contains six positive integers R, C, LD, CS, CF, RF separated by space and representing (in this order) the number of rows in the production matrix, the number of columns in the same matrix, the length of the demanded chain to be produced, the number of Clip schemes available, the Clip factor, and the Replacement factor.
+Next, there are R lines specifying the production matrix. Each line contains a string of C characters.
+The next line specifies the demanded chain.
+Next, there are CS lines specifying the available Clip schemes. Each line specifies one scheme.
+It holds, 2 ≤ R, C ≤ 15, LD ≤ 500, CS ≤ 500, CF, RF ≤ 10.
+The length of the standard chain is less than 2.5×105. The length of any Clip scheme less than 20.
+There are no blank spaces in any line after the first line.
+Output
+
+The output consists of one line containing 3 integers separated by spaces.
+The first integer represents the position in the standard chain of the first link of the piece obtained by the Cut out operation.
+The second integer represents the length of the same piece.
+The third integer represents the cost of subsequent modification of this piece which turns it into the demanded chain. The modification cost is minimum possible.
+When there are more possibilities of cutting out a chain piece which lead to the same minimal cost, the shorter piece is preferred. When the lengths of such pieces are equal, the one which was cut out closer to the front end of the standard chain is preferred. The position indexes are 1-based.
+Example 1
+Input
+
+3 2 5 2 1 5
+aa
+bc
+da
+bcadb
+aa
+dac
+
+Output
+
+8 7 17
+
+The standard chain in Example 1 is coded by the sequence abdabaacdacaabdabaacdaca.
+Example 2
+Input
+
+3 2 7 6 2 9
+ab
+cd
+aa
+baaadcbd
+acaad
+bc
+bdab
+cb
+daad
+abcab
+
+Output
+
+2 22 42
+
+The standard chain in Example 2 is coded by the sequence acaacaadaadabcabcabdabda.
+Example 3
+Input
+
+2 3 8 4 4 4
+aaa
+dcb
+abcdabcd
+a
+bac
+cab
+cad
+
+Output
+
+3 8 32
+
+The standard chain in Example 3 is coded by the sequence adacadacabacab. The same minimum cost 32 can be achieved by Cut out operation producing the chain piece acadacabac . However, the length of this piece is 10, it is not preferred.
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+
+Utility Pipes
+There are two kinds of agricultural farms in the area - bigger farms, called hub farms, and smaller farms, called subject farms.
+Some pairs of farms are connected by roads and each subject farm is accessible from at least one hub farm by a sequence of one or more roads.
+A network of utility pipes is going to be built in the area. All hub farms are already connected to the state backbone utility grid, and none of the subject farms is connected to it.
+The proposed network will connect each subject farm to exactly one hub farm by a sequence of one or more pipes. Each pipe will connect two farms and it will be laid by the road connecting the farms, thus, its length will be the same as the length of the road.
+To keep the network scheme simple, it was decided that each subject farm will be connected to its closest hub farm. The distance between two farms is always equal to the minimum total length of roads that have to be traversed when traveling from one farm to the other one. All roads are two-way roads.
+It was soon pointed out by the oponents of the project there there may be some subject farms for which there exist two or more closest hub farms. Project managers therefore decided to call such farms undecided farms and exclude them from the project altogether, if they will be revealed in the area. A separate project regarding their connection to the network would be proposed later.
+
+An obvious demand of the management and the farmers is to lay pipes in optimal way, that is, to minimize their total length.
+     
+
+
+Image 1. A scheme of farms and roads in the area. Small circles represent farms, lines represent roads. Hub farms are drawn in black, numbers at the roads represent their length. Roads with pipes are highlighted in blue. The choice of roads with pipes is optimal, the total length of pipes is 42. There are 4 undecided farms, with background highlighted in light blue. The scheme illustrates Example 1 below.
+The task
+
+You are given a list of lengths of all roads in the area. Also, you are given a list of all hub farms in the area. Find the minimum total length of all pipes in the project and the number of undecided farms.
+Input
+
+The first line of input contains two integers F and R, number of farms and the number of roads. Farms are labeled by integers 0, 1, ..., F−1.
+Next, there are R lines, each specifies one road. There are three integers on a line specifying a road, the first two are the labels of farms connected by the road and the third one is the length of the road.
+Next, there is a line with single integer H, the number of hub farms. The next line contains H integers, the list of labels of all hub farms.
+It holds, 2 ≤ F ≤ 104, 1 ≤ R ≤ 106, 1 ≤ H ≤ F. All road lengths are positive integers less than 1000.
+All adjacent input values on any line are separated by a space.
+Output
+
+Ouput consists of one text line with two integers separated by space, representing the minimum pipes network length and the number of undecided farms.
+         
+Example 1
+Input
+
+20 31
+0 1 4
+0 5 2
+1 2 9
+1 6 5
+2 3 6
+2 7 2
+3 4 2
+3 8 7
+4 9 5
+5 6 7
+5 10 1
+6 7 8
+6 11 3
+7 8 9
+7 12 5
+8 9 3
+8 13 8
+9 14 2
+10 11 4
+10 15 6
+11 12 3
+11 16 5
+12 13 4
+12 17 4
+13 14 3
+13 18 2
+14 19 5
+15 16 2
+16 17 6
+17 18 8
+18 19 2
+4
+3 8 15 17
+
+Output
+
+42 4
+
+	
+
+
+
+
+
+
+
+
+    Image 2. A scheme of farms, roads and optimal choice of roads with pipes in Example 1. Features of the scheme are explained in the description of Image 1.
+         
+Example 2
+Input
+
+13 16
+0 1 1
+0 5 1
+0 3 1
+1 2 1
+2 7 1
+2 4 1
+3 6 1
+4 6 1
+5 10 1
+6 8 1
+6 9 1
+7 12 1
+8 10 1
+9 12 1
+10 11 1
+11 12 1
+4
+0 2 12 10
+
+Output
+
+4 5
+
+	
+
+
+
+
+
+    Image 3. A scheme of farms, roads and optimal choice of roads with pipes in Example 2. Features of the scheme are explained in the description of Image 1.
+         
+Example 3
+Input
+
+8 11
+0 1 4
+1 2 4
+2 3 2
+3 4 7
+4 7 7
+7 6 2
+6 5 4
+5 0 4
+1 5 1
+2 6 1
+3 7 1
+2
+0 4
+
+Output
+
+18 0
+
+	
+
+
+
+
+
+
+    Image 4. A scheme of farms, roads and optimal choice of roads with pipes in Example 3. Note there are no undecided farms in Example 3. Features of the scheme are explained in the description of Image 1.
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+
+Conveyor Reconfigurations
+
+The chemical factory, in this problem, consists of processing points and conveyors. For simplicity, the processing points are called just points, throughout this text. Each conveyor connects two points, there may be more conveyors connected to a node.
+In a point, a chemical is processed, and then, depending on a production process, it can be moved to another point for additional processing. Only the conveyors are used for movement of the chemicals.
+
+Some of the points have an additional function as dedicated source points where chemicals are stocked during the day. The factory is organized in such way that whenever a chemical is needed in a particular point, there is at least one source point from which the chemical can be transported via one or more conveyors to that particular point. One of the points, not necessarily a source point, serves as so-called central store. Each morning, each of the source points receives one package of chemicals which is transported to the source point from the central store. The package contains all chemicals used in the factory.
+
+Transporting the packages from the central store to the source points is a demanding process. Each of the conveyors is optimized for movement in only one preferred direction. In order for the packages to reach the source points, some of the conveyors have to be reconfigured to run temporarily in the opposite direction. Reconfiguration of a conveyor is a costly process and it considerably shortens the lifetime of the conveyor. To worsen the matters even further, any conveyor has to be reconfigured separately for each package which is travelling in the oposite direction on that conveyor.
+
+Fortunately, any of the points in the factory can be used as a source point. Also, it is not prescribed which conveyors are to be used in the transportation of the package and also it is not prescribed through which other points a package is to be transported before it reaches its assigned source point.
+It turns out that a careful choice of the source points and the conveyors through which the packages travel can minimize the number of reconfigurations in the morning.
+
+To be able to tackle the problem in more systematic way, let us define some terminology.
+
+A point y is accessible from a point x if a chemical or a package can be transported from x to y without reconfiguration of a any conveyor.
+A set X of points is called a covering set if each point in the factory is accessible from at least one point in X. (It does not matter from which point or points in X.)
+The difficulty of a point P is the minimum possible number of reconfigurations which have to be made when a package is transported from the central store to P.
+The difficulty of a set of points is the sum of difficulties of all points in the set.
+We suppose that each point is accessible from itself.
+
+Note that the minimum necessary number of reconfigurations in the morning is equal to the minimum possible difficulty of a covering set of nodes.
+
+
+Figure 1. Scheme of points and conveyors in the factory. A conveyor is depicted as an arrow in the preferred direction of the conveyor. The point in which the central store is located is highlighted. There are 4 source points in any solution to the problem. Those are points 1, 8, any of points 0,2,3 and any of points 13, 14, 15. The number of reconfigurations is 11. The conveyors 1-4, 3-4, 8-9, 9-10, 10-11, 15-16 are to be reconfigured once. The conveyor 4-5 has to be reconfigure two times and the conveyor 11-16 has to be reconfigured three times. There are also other ways to reconfigure the conveyors but the total number of reconfigurations is always at least 11.
+The task
+
+You are given the preferred direction for each conveyor in the factory. Also, you are given a location of the central store. Find the minimum possible difficulty of a covering set of nodes.
+Input
+
+The first input line contains three positive integers N, M, C, separated by spaces, where N is the number of points in the factory, M is the number of conveyors in the factory and C is the label of the point where the central store is located. The points are labeled 0, 1, 2, ..., N−1.
+Next, there are M input lines, each line represents one conveyor. The conveyor is listed as a pair of integers separated by space, the integers represent the labels of the points connected by the conveyor, the preferred direction of the conveyor is from the first listed point to the second one.
+The conveyors in the list are given in arbitrary order.
+It holds, 4 ≤ N ≤ 106, N−1 ≤ M ≤ 7×106.
+MRSC
+Output
+
+The output contains one text line with one integer equal to the minimum difficulty of a covering set of points in the factory.
+It is guaranteed that a covering set exists for each input data.
+Example 1
+Input
+
+17 21 16
+0 3
+1 4
+2 0
+3 2
+3 4
+4 5
+5 6
+6 7
+8 9
+9 10
+10 11
+14 13
+13 15
+15 14
+15 16
+16 12
+7 12
+4 10
+11 5
+11 16
+12 6
+
+Output
+
+11
+
+The data of Example 1 is depicted in Figure 1. 		
+Example 2
+Input
+
+8 7 4
+0 4
+0 5
+1 5
+2 5
+2 6
+3 6
+3 7
+
+Output
+
+8
+
+	
+Example 3
+Input
+
+11 13 9
+0 1
+3 4
+0 5
+5 6
+6 0
+6 7
+7 2
+2 8
+8 7
+8 9
+9 4
+4 10
+10 9
+
+Output
+
+3
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to the public data set
+
+
+
+
+Smugglers vs Detectives
+
+The detectives from law enforcement company Catch&Jail Ltd. investigate a group of smugglers. The detectives compiled an investigation list of these individuals. Before they crack down on the suspects they want to extract as much knowledge as possible from the information already available to the company.
+A new criminal syndicate operates in the area and their people are organized into so called packs. The detectives are sure there are members of two packs in their list of suspects.
+
+The following information is known to the detectives.
+
+    Any two members of the syndicate are either connected or not. The pair of members who are connected communicate regularly and know each other, the pair who is not connected does not communicate, and the two individuals do not meet each other at all.
+    The structure of all packs is identical, in the sense described below.
+    No person can be a member of two or more packs.
+    A pack is connected. It means that some members of the pack might not be connected, however there is a always a sequence of connections which leads from a member of the pack to any other member of the same pack. A sequence of connections is a sequence of persons P1, P2 P3, P4, ..., etc, such that there is a connection between P1 and P2, a connection between P2 and P3, between P3 and P4 etc. There can be even more than one sequence of connections between two members of a pack.
+    All connections between the pairs of individuals in the detectives' list.
+    The number P of members of a pack and the number C of all connections between the members of a pack. 
+
+Identity of pack structure.
+Let there be two packs. Whenever members of one pack are listed in an arbitrary but fixed order then the members of the other pack can be listed in such order that the following is true:
+
+    For any two different positions, say p1 and p2 in the first list, it holds
+    the pair of members of the first pack at positions p1 and p2 are connected if and only if the pair of members of the second pack at the same positions in the other list is connected too. 
+
+
+
+The detectives hope they can identify two packs in their list of suspects. However, because of the incomplete knowledge, they first need to produce a set of all possible pairs of packs in their investigation list.
+
+
+Figure 1. Schemes of connections between pairs of suspects in the investigation list. In case a), the list contains 8 individuals with 9 connections between some of them. In case b), the list contains 14 individuals with 19 connections between some of them. The smaller highlighted schemes, in each of the cases, present all possible pairs of packs in the given list. The members of the packs are shown as black dots and the connections between them are shown as thick lines. The values of P and C, respectively, are 3 and 2 in case a) and 4 and 4 in case b). The schemes correspond to Examples 1 and 2 below.
+The task
+
+You are given a list of all pairs of smugglers who are mutually connected. Also, you are given the size of the smugglers pack and the number of connections in a pack. Determine all possible pairs of packs in the given list.
+Input
+
+The first input line contains four positive integers N, M, P, C, where N is the number of smugglers in the list, M is the number of connections in the list, P is the pack size and C is the number of connections in a pack. For simplicity, the smugglers are labeled 0, 1, 2, ..., N−1.
+Next, there are M input lines, each line represents one connection between two smugglers. The connection is listed as a pair of integers separated by space, the integers represent the labels of the smugglers in the pair.
+The list of connections and also each particular connection are given in arbitrary order.
+The following limits hold: 4 ≤ N ≤ 30, N−1 ≤ M ≤ 100, 3 ≤ P ≤ 7, 2 ≤ C ≤ 10,
+Output
+
+The output contains one or more text lines. Each line contains a possible pair of packs in the investigation list.
+The pack which contains the member with the lowest label is listed first on the line, the other pack follows. A list of a pack is a sequence of the labels of its members sorted in ascending order.
+The values on a line are separated by spaces. The lines are sorted in ascending lexicographical order.
+There is always at least one possible pair of packs in the investigation list. The number of possible pair of packs is at most 5000.
+Example 1
+Input
+
+8 9 3 2
+0 1
+0 2
+1 2
+2 3 
+3 4
+4 5
+5 6
+6 7
+7 3
+
+Output
+
+0 2 3 4 5 6
+0 2 3 5 6 7
+1 2 3 4 5 6
+1 2 3 5 6 7
+2 3 4 5 6 7
+2 3 7 4 5 6
+
+The data of Example 1 is depicted in Figure 1a). 		
+Example 2
+Input
+
+14 19 4 4
+0 1
+0 5
+1 5
+2 3
+2 7
+3 7
+4 5
+5 6
+6 7
+7 8
+9 10
+10 11
+11 12
+12 13
+4 9
+5 10
+6 11
+7 12
+8 13
+
+Output
+
+0 1 4 5 2 3 6 7
+0 1 4 5 2 3 7 8
+0 1 4 5 2 3 7 12
+0 1 5 6 2 3 7 8
+0 1 5 6 2 3 7 12
+0 1 5 10 2 3 6 7
+0 1 5 10 2 3 7 8
+0 1 5 10 2 3 7 12
+4 5 9 10 6 7 11 12
+4 5 9 10 7 8 12 13
+5 6 10 11 7 8 12 13
+
+The data of Example 2 is depicted in Figure 1b). 	
+Example 3
+Input
+
+6 15 3 3
+0 1
+0 2
+0 3
+0 4
+0 5
+1 2
+1 3
+1 4
+1 5
+2 3
+2 4
+2 5
+3 4
+3 5
+4 5
+
+Output
+
+0 1 2 3 4 5
+0 1 3 2 4 5
+0 1 4 2 3 5
+0 1 5 2 3 4
+0 2 3 1 4 5
+0 2 4 1 3 5
+0 2 5 1 3 4
+0 3 4 1 2 5
+0 3 5 1 2 4
+0 4 5 1 2 3
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to the public data set
+
+
+
+Incomplete Automaton
+
+The task
+
+You are given a deterministic finite automat, however, information on the initial and final states is missing. Instead of it, a set of words accepted by the automaton (called positive examples) and a set of words rejected by the automaton (called negative examples) are provided. For each final state q, the positive examples contain at least one word which translates the initial state to state q. The number of final states is also known. Your task is to determine which choices of the initial and final states are admissible with respect to the positive and negative examples.
+Input
+
+The first row consists of six integers S, A, F, P, N, L separated by a space. The values represent the number of states of the automaton (S), size of the input alphabet (A), the number of final states (F), the number of positive examples (P), the number of negative examples (N) and a (uniform) length of each example (L). States of the automaton are denoted by numbers 0,..,S−1. The input alphabet consists of the first A characters from the range 'a',..,'z'. It holds 2≤A≤26 and 1≤F≤S. The first row is followed by S lines defining the transition function. Each line contains A+1 integers separated by a space. The first number is a state q for which the line defines all transitions: the i+1-st number is the state which the automaton enters from q after reading the i-th character of the input alphabet. All this is followed by P lines with positive examples, immediately followed by N lines with negative examples. Each of the examples is a word of length L.
+
+It is known that all the examples were generated using the following algorithm. Choose at most log L indices from the range 1,..,L-√L. At these positions, generate character 'a' or 'b', each of them with probability 1/2. Set the other characters of the prefix of length L-√L to 'a'. Generate randomly the remaining characters of the suffix of length √L. In this case, each character is generated from the whole input alphabet, with the uniform distribution.
+
+Value of S does not exceed 300, value of F does not exceed 30, value of P does not exceed 2000, value of N does not exceed 5000 and value of L does not exceed 30000.
+Output
+
+The output is formed of several lines. Each line represents one possible choice of the initial and final states: there are F+1 numbers, separated by a space. The first value is the initial state. The next F values are final states arranged in ascending order. All the output lines are arranged lexicographically in ascending order as integer vectors of dimension F+1. Each possible solution is contained in the output exactly once.
+
+
+Figure 1. Automata from Example 1 and 2.
+Example 1
+Input
+
+4 2 2 2 2 9
+0 1 3
+1 1 3
+2 2 0
+3 2 0
+aaaaaaaba
+abaaaabbb
+aaaaaabbb
+aaaaabbaa
+
+Output
+
+0 0 2
+1 0 2
+2 1 3
+3 1 3
+
+The automaton represented by the input is depicted as A1 in Figure 1. If state 0 is chosen as the initial one, the automaton finishes in state 2 when reading the first positive example, in state 0 when reading the second positive example, in state 3 when reading the first negative example and in state 1 when reading the second negative example. It is thus necessary to choose 0 and 2 as the final states. Since F=2, there are no other final states. This solution is represented by the first line of the output.
+Example 2
+Input
+
+3 3 2 2 1 7
+0 0 1 2
+1 2 1 0
+2 0 1 2
+aaaaabc
+aaabbac
+aaaabcb
+
+Output
+
+0 0 2
+1 0 2
+2 0 2
+
+The automaton represented by the input is depicted as A2 in Figure 1.
+Example 3
+Input
+
+5 2 3 4 0 6
+0 1 0
+1 2 1
+2 3 1
+3 4 3
+4 0 4
+ababba
+abbabb
+aaaaaa
+aababb
+
+Output
+
+1 1 2 4
+2 0 3 4
+3 0 1 4
+4 0 1 2
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+Incomplete Automaton
+
+The task
+
+You are given a deterministic finite automat, however, information on the initial and final states is missing. Instead of it, a set of words accepted by the automaton (called positive examples) and a set of words rejected by the automaton (called negative examples) are provided. For each final state q, the positive examples contain at least one word which translates the initial state to state q. The number of final states is also known. Your task is to determine which choices of the initial and final states are admissible with respect to the positive and negative examples.
+Input
+
+The first row consists of six integers S, A, F, P, N, L separated by a space. The values represent the number of states of the automaton (S), size of the input alphabet (A), the number of final states (F), the number of positive examples (P), the number of negative examples (N) and a (uniform) length of each example (L). States of the automaton are denoted by numbers 0,..,S−1. The input alphabet consists of the first A characters from the range 'a',..,'z'. It holds 2≤A≤26 and 1≤F≤S. The first row is followed by S lines defining the transition function. Each line contains A+1 integers separated by a space. The first number is a state q for which the line defines all transitions: the i+1-st number is the state which the automaton enters from q after reading the i-th character of the input alphabet. All this is followed by P lines with positive examples, immediately followed by N lines with negative examples. Each of the examples is a word of length L.
+
+It is known that all the examples were generated using the following algorithm. Choose at most log L indices from the range 1,..,L-√L. At these positions, generate character 'a' or 'b', each of them with probability 1/2. Set the other characters of the prefix of length L-√L to 'a'. Generate randomly the remaining characters of the suffix of length √L. In this case, each character is generated from the whole input alphabet, with the uniform distribution.
+
+Value of S does not exceed 300, value of F does not exceed 30, value of P does not exceed 2000, value of N does not exceed 5000 and value of L does not exceed 30000.
+Output
+
+The output is formed of several lines. Each line represents one possible choice of the initial and final states: there are F+1 numbers, separated by a space. The first value is the initial state. The next F values are final states arranged in ascending order. All the output lines are arranged lexicographically in ascending order as integer vectors of dimension F+1. Each possible solution is contained in the output exactly once.
+
+
+Figure 1. Automata from Example 1 and 2.
+Example 1
+Input
+
+4 2 2 2 2 9
+0 1 3
+1 1 3
+2 2 0
+3 2 0
+aaaaaaaba
+abaaaabbb
+aaaaaabbb
+aaaaabbaa
+
+Output
+
+0 0 2
+1 0 2
+2 1 3
+3 1 3
+
+The automaton represented by the input is depicted as A1 in Figure 1. If state 0 is chosen as the initial one, the automaton finishes in state 2 when reading the first positive example, in state 0 when reading the second positive example, in state 3 when reading the first negative example and in state 1 when reading the second negative example. It is thus necessary to choose 0 and 2 as the final states. Since F=2, there are no other final states. This solution is represented by the first line of the output.
+Example 2
+Input
+
+3 3 2 2 1 7
+0 0 1 2
+1 2 1 0
+2 0 1 2
+aaaaabc
+aaabbac
+aaaabcb
+
+Output
+
+0 0 2
+1 0 2
+2 0 2
+
+The automaton represented by the input is depicted as A2 in Figure 1.
+Example 3
+Input
+
+5 2 3 4 0 6
+0 1 0
+1 2 1
+2 3 1
+3 4 3
+4 0 4
+ababba
+abbabb
+aaaaaa
+aababb
+
+Output
+
+1 1 2 4
+2 0 3 4
+3 0 1 4
+4 0 1 2
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+
+Counting linear congruential generators
+
+A linear congruential generator (LCG) is a triple of integers (A, C, M) used to generate pseudorandom numbers by the formula xn+1=(Axn+C) mod M applied recurrently to a chosen initial value x0.
+The task
+
+By the assumption that there are ranges specified for the parameters A, C, M, count the number of full length period LCGs for which M is the product of exactly P distinct primes (where P is a given number).
+
+Hint: It might be helpful to use the inclusion-exclusion principle.
+Input
+
+The input consists of four lines. The first line contains integers Amin, Amax. The second line contains integers Cmin, Cmax. The third line contains integers Mmin, Mmax. Each pair of integers is separated by a space. The fourth line contains an integer P. The following limits hold:
+1 ≤ Amin ≤ Amax ≤ 3 × 1011, 1 ≤ Cmin ≤ Cmax ≤ 3 × 1011, 1 ≤ Mmin ≤ Mmax ≤ 2 × 1010, Mmax ≤ Amax, 2 ≤ P ≤ 9.
+Output
+
+The output consists of one line containing integer R which is equal to the number of LCGs (A, C, M) that meet the following conditions:
+
+    Amin ≤ A ≤ Amax,
+    Cmin ≤ C ≤ Cmax,
+    Mmin ≤ M ≤ Mmax,
+    M is the product of P distinct primes,
+    (A, C, M) has period of length M.
+
+It holds that R does not exceed 5 × 1016.
+
+Example 1
+Input
+
+3 14
+3 6
+2 7
+2
+
+Output
+
+2
+
+The two feasible LCGs are as follows:
+
+    A=7, C=5, M=6
+    A=13, C=5, M=6
+
+Example 2
+Input
+
+10 126
+20 30
+4 46
+3
+
+Output
+
+14
+
+The fourteen feasible LCGs are as follows:
+
+    A=31, C=23, M=30
+    A=31, C=29, M=30
+    A=61, C=23, M=30
+    A=61, C=29, M=30
+    A=91, C=23, M=30
+    A=91, C=29, M=30
+    A=121, C=23, M=30
+    A=121, C=29, M=30
+    A=43, C=23, M=42
+    A=43, C=25, M=42
+    A=43, C=29, M=42
+    A=85, C=23, M=42
+    A=85, C=25, M=42
+    A=85, C=29, M=42
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+Non-overlapping matches
+We are required to implement special search functionality into a text editor. For a string entered by the user, this functionality has to look for similar substrings in the edited text. The aim is to find as many such non-overlapping substrings as possible and highlight them all at once.
+
+The task
+
+Given a text T, pattern P and threshold parameter D, find a set S of pairwise disjoint intervals <a, b>, where 1 ≤ a ≤ b ≤ |T|, that satisfy:
+
+    For each <a, b> ∈ S, the Levenshtein distance between P and T(a)···T(b) is not greater than D.
+    The size of S is largest possible.
+    There is no other set of pairwise disjoint intervals S′ that fullfil all the above conditions (which means, among other things, that |S′|=|S|) and cover more characters of T than the intervals in S.
+
+Remark: We assume that characters of T are indexed from 1 to |T|. Moreover, T(a)···T(b) is the substring of T starting at index a and ending at index b.
+
+Input
+
+The first input line contains a text T, the second input line contains a pattern P. Both sequences, T and P, are strings over {'a',...,'z'}. The third line contains an integer which is the similarity threshold parameter D.
+It holds 1 ≤ D ≤ 23, D < |P| ≤ 180, 1 ≤ |T| ≤ 1.1 × 106.
+Output
+
+The output is one line containing two integers, M and H, separated by space. M is the number of intervals in an optimal set S (i.e., the number of matches to be highlighted in the editor) and H is the number of characters of T that are not covered by any interval of S (i.e., the number of characters that will not be highlighted).
+Example 1
+Input
+
+aabbbcabab
+abb
+1
+
+Output
+
+4 1
+
+The result can be visualized as follows:
+
+aab|bb|c|ab|ab
+
+Characters to be highlighted are displayed in orange. Auxiliary characters '|' are added only here to separate matching substrings (they are not part of the text in the editor).
+Example 2
+Input
+
+jedevvvede
+jede
+2
+
+Output
+
+3 1
+
+The result can be visualized as follows:
+
+je|de|v|vvede
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+Non-overlapping matches
+We are required to implement special search functionality into a text editor. For a string entered by the user, this functionality has to look for similar substrings in the edited text. The aim is to find as many such non-overlapping substrings as possible and highlight them all at once.
+
+The task
+
+Given a text T, pattern P and threshold parameter D, find a set S of pairwise disjoint intervals <a, b>, where 1 ≤ a ≤ b ≤ |T|, that satisfy:
+
+    For each <a, b> ∈ S, the Levenshtein distance between P and T(a)···T(b) is not greater than D.
+    The size of S is largest possible.
+    There is no other set of pairwise disjoint intervals S′ that fullfil all the above conditions (which means, among other things, that |S′|=|S|) and cover more characters of T than the intervals in S.
+
+Remark: We assume that characters of T are indexed from 1 to |T|. Moreover, T(a)···T(b) is the substring of T starting at index a and ending at index b.
+
+Input
+
+The first input line contains a text T, the second input line contains a pattern P. Both sequences, T and P, are strings over {'a',...,'z'}. The third line contains an integer which is the similarity threshold parameter D.
+It holds 1 ≤ D ≤ 23, D < |P| ≤ 180, 1 ≤ |T| ≤ 1.1 × 106.
+Output
+
+The output is one line containing two integers, M and H, separated by space. M is the number of intervals in an optimal set S (i.e., the number of matches to be highlighted in the editor) and H is the number of characters of T that are not covered by any interval of S (i.e., the number of characters that will not be highlighted).
+Example 1
+Input
+
+aabbbcabab
+abb
+1
+
+Output
+
+4 1
+
+The result can be visualized as follows:
+
+aab|bb|c|ab|ab
+
+Characters to be highlighted are displayed in orange. Auxiliary characters '|' are added only here to separate matching substrings (they are not part of the text in the editor).
+Example 2
+Input
+
+jedevvvede
+jede
+2
+
+Output
+
+3 1
+
+The result can be visualized as follows:
+
+je|de|v|vvede
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+Laser Highways System
+
+All cities in the country are connected by highways. Each highway connects two cities, no two highways intersect outside a city.
+
+The transport scheme in the country uses the notion of the so-called city index. The index of a city is equal to the minimum number of highways a vehicle must traverse to get from the city to the capital. In other words, it is equal to one plus the minimum number of cities, other than the start city and the capital, a vehicle must travel through on its journey from the city to the capital. The index of the capital is 0.
+
+The capital city is economically very important and the highways network is to be upgraded. Some carefully chosen highways will be equipped with quantum laser navigation systems. The upgraded highways are called laser highways. The set of all laser highways is called the laser network. The cost of upgrading a highway is not always the same and it has been calculated for each highway in the country. The cost of the laser network is the sum of upgrade costs of all laser highways in the laser network.
+
+The laser network will be quite costly and very probably it is not going to contain each existing road. On the other hand, the laser network must provide some sensible utility. The authorities make every effort to find a reasonable compromise.
+
+The network must satisfy all three following rules.
+
+    1. It must be possible to travel via the the laser network from any city in the country to the capital city.
+    2. When a vehicle travels along the laser network from any city to the capital, it must be possible to choose a sequence of laser highways in such a way that the vehicle never enters a city which index is higher than the index of any city the vehicle had left earlier on its journey. (The sequence of indices of the visited cities is non-increasing.)
+    3. The cost of the laser network has to be minimum possible. 
+
+
+
+Figure 1. A scheme of cities and highways. There are 16 cities and 24 highways. The capital city label is 9, it is highlighted. The laser network, which is highlighted in green, is the least costly laser network with the demanded properties. The scheme illustrates Example 1 below.
+The task
+
+You are given the list of highways in the country and the cost of upgrading each highway to a laser highway. Calculate the minimum possible cost of the laser network.
+Input
+
+The first input line contains three integers N, M, C. N is the number of cities, M is the number of highways, C is the label of the capital city. All cities are labeled by integers 0, 1, ..., N − 1. The list of all highways is on the next M lines. Each of those lines contains three integers a, b, p separated by space. Integers a and b are labels of two cities connected by a highway and p is the cost of upgrading that highway to a laser highway. The order of the pairs of cities in the list is arbitrary.
+The value of N does not exceed 2×104, the value of M does not exceed 2×106. Each upgrade cost is positive and it does not exceed 103.
+Output
+
+The output contains one text line with one integer representing the minimum possible cost of the laser network.
+Example 1
+Input
+
+16 24 9
+0 1 4
+1 2 60
+2 3 4
+4 5 60
+5 6 50
+6 7 65
+8 9 30
+9 10 40
+10 11 45
+12 13 45
+13 14 3
+14 15 55
+0 4 3
+1 5 3
+2 6 6
+3 7 7
+4 8 6
+5 9 5
+6 10 2
+7 11 1
+8 12 9
+9 13 2
+10 14 5
+11 15 4
+
+Output
+
+163
+
+The data of Example 1 is depicted in Figure 1. 		
+Example 2
+Input
+
+7 9 6
+0 1 5
+2 3 5
+4 5 90
+4 6 5
+5 6 100
+0 2 10
+2 4 5
+1 3 10
+3 5 5
+
+Output
+
+120
+
+	
+Example 3
+Input
+
+10 22 6
+1 6 16
+0 1 15
+1 7 17
+6 8 10
+3 4 10
+2 4 13
+2 5 14
+4 6 13
+4 5 19
+5 8 18
+5 6 13
+1 9 18
+0 9 11
+0 8 15
+0 7 18
+2 3 17
+1 4 10
+3 6 12
+1 3 11
+1 8 12
+2 6 16
+3 9 13
+
+Output
+
+109
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to the public data set
+
+
+
+
+Connection-Safe Minibus Trips
+
+The Lake District Travel Agency operates in the Lake District which is famous for its natural wonders and strict environmental rules limiting access to the area.
+Any motorized access to places in Lake District is possible only by licensed minibusses. There is a number of minibus stops. Typically, a stop is built in a vicinity of some natural point of interest. The roads are extremely narrow, thus each route is only one-directional. The transport is organized by so-called minibus connections.
+A minibus connection always connects just two different minibus stops - the start stop and the end stop of that connection.
+
+Due to the weather and wildlife conditions, varying in time, the minibus traffic on the connections in the area might be a bit erratic sometimes. Thus, an additional property of minibus stops is defined.
+A minibus connection C from stop a to stop b is considered to be an unsafe connection if and only if a traveller who leaves a via C cannot return to a by any sequence of minibus connections.
+All minibus stops in which no unsafe connection starts or ends are considered to be connection-safe stops.
+No other minibus stops are considered to be connection-safe.
+
+A minibus trip is a sequence of minibus connections in which the start stop of a minibus connection is also the end stop of the previous minibus connection in the sequence. Any minibus stop and any minibus connection may appear more times in a minibus trip, the number of times a particular minibus stop or a particular minibus connection appears in a minibus trip is not limited.
+
+The agency plans to offer minibus trips that visit the maximum possible number of connection-safe stops. Each visited connection-safe stop is counted only once in a trip, regardless of the number of visits to the stop.
+
+
+Figure 1. A scheme of minibus stops and connections. There are 17 stops and 24 connections. The connection-safe stops are highlighted in blue. There is a minibus trip that visits connection-safe stops 3, 4, 9, 10, 11, 8, 16. There is no minibus trip which visits more than 7 connection-safe stops. The scheme illustrates Example 1 below.
+The task
+
+You are given the list of all minibus connections in the Lake District. Calculate the maximum number of connection-safe stops that can be visited in one minibus trip.
+Input
+
+The first input line contains two positive integers N, M, where N is the number of minibus stops, M is the number of minibus connections. The minibus stops are labeled by integers 0, 1, ..., N−1. The list of all minibus connections is on the next M lines. Each of those lines contains two integers separated by space, the first integer denotes the label of the start stop of a minibus connection and the second integer denotes the label of the end stop of the same minibus connection. The order of the minibus connections in the list is arbitrary.
+The value of N does not exceed 106, the value of M does not exceed 2×106.
+Output
+
+The output contains one text line with one integer representing the maximum number of connection-safe stops in a minibus trip.
+Example 1
+Input
+
+17 24
+0 1
+1 2
+2 1
+0 5
+5 1
+1 6
+3 0
+3 4
+4 5
+6 7
+7 8
+12 3
+5 12
+15 7
+8 16
+9 11
+10 11
+14 9
+14 10
+11 14
+12 13
+13 14
+14 15
+16 15
+
+Output
+
+7
+
+The data of Example 1 is depicted in Figure 1. 		
+Example 2
+Input
+
+5 8
+0 1
+1 2
+2 3
+3 2
+4 0
+4 2
+4 3
+1 4
+
+Output
+
+1
+
+	
+Example 3
+Input
+
+12 16
+0 1
+1 2
+1 3
+3 2
+1 6
+6 7
+7 1
+2 8
+8 9
+9 2
+3 10
+10 11
+11 3
+0 4
+4 5
+6 0
+
+Output
+
+6
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to the public data set
+
+
+
+
+Equivalence of Border Networks
+
+
+A network, in this problem, is an unempty set of nodes connected by edges. Each two nodes are connected by at most one edge. A network is connected, that is, there is a path between any two nodes in the network. Removal of any single edge disconnects the network.
+The eccentricity of node x is the distance between x and the node most distant to x. A center of a network is a node with minimum eccentricity in the network. Any network contains either one center or two centers. In the latter case, the centers are connected by an edge.
+
+Let e be an edge in a network N. When e is removed from N, N is split into two disjoint networks N1 and N2. Any of these networks which contains no center of the original network N is called a border network.
+The root of a border network BN is the node in BN which distance to a center of N (measured in the original network N) is minimal among all nodes in BN. We denote a border network with root R by symbol B(R).
+The size of a border network is the number of nodes in it.
+The height of a border network BN is the maximum distance from its root to any of the leaves in BN.
+A child of a node x in a border network BN is a node y which is a neighbour of x and which distance from the BN root is bigger by one than the distance of x from the BN root.
+
+The equivalence of two border networks B1 and B2 with their respective roots R1 and R2 is defined recursively as follows:
+
+    When the size of both networks B1 and B2 is 1 then B1 and B2 are equivalent.
+    When the size of any of networks B1 and B2 is bigger than 1, then let (C1, C2, ..., Ck) (k ≥ 1) be a sequence of all children of R1.
+    Then, B1 and B2 are equivalent if and only if all children of R2 can be listed in a sequence (D1, D2, ..., Dk) in such order that B(Cj) is equivalent to B(Dj), (j = 1, 2, ..., k).
+    Each child has to appear in its respective sequence exactly once. 
+
+
+
+Figure 1. Schemes of border networks in networks T1 and T2 illustrating Example 1 below. The lower and the upper bound of border network size is 2 and 3, the lower and the upper bound of border network height is 1 and 1 (the height of each considered border network is exactly 1). Border networks corresponding to the given bounds are highlighted. There are 5 border networks in T2, satisfying the given bounds, to which there exists an equivalent border network in T1. Each network scheme is accompanied by its certificate.
+The task
+
+You are given two networks T1 and T2. You are also given the lower and the upper bound of the size and the lower and the upper bound of the height of border networks. Find the number of such border networks in T2 for which there exists an equivalent border network in T1 and which size and height are within the given bounds.
+Input
+
+The first input line contains four integers Nmin, Nmax, Hmin, Hmax which represent the lower and the upper bound of the size and the lower and the upper bound of the height of border networks. Next, there are two lines describing two unempty networks T1 and T2. The networks are represented by their certificates. Each certificate occupies one line, it contains only 0s and 1s and there are no other symbols on the line.
+It holds, 1 ≤ Nmin ≤ Nmax ≤ 104, 0 ≤ Hmin ≤ Hmax ≤ 103. The number of nodes in each network does not exceed 3×106.
+Output
+
+The output contains one text line with one integer representing the number of such border networks in T2 which size and height are within the given bounds and for which there exists an equivalent border network in T1.
+
+Example 1
+Input
+
+2 3 1 1
+00010111000111
+000010110011011000110110010110011011
+
+Output
+
+5
+
+The networks and the border networks corresponding to the given bounds are depicted in Figure 1.
+
+
+
+     
+Example 2
+Input
+
+2 7 1 2
+00000101100111011000011111
+0000101100111000101100111000101100111000101111
+
+Output
+
+10
+
+	  	
+
+
+Figure 2. Schemes of networks T1 and T2 in Example 2. Border networks corresponding to the given bounds are highlighted. The border network with darker background highlight in T2 has no equivalent border network in T1.
+
+
+
+
+     
+Example 3
+Input
+
+1 8 0 3
+0000001111100000111111
+0000001111100000111110000011111000001111100000111111
+
+Output
+
+20
+
+	  	
+
+
+Figure 3. Schemes of networks T1 and T2 in Example 3. Border networks corresponding to the given bounds are highlighted.
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to the public data set
+
+
+
+Words with given prefix
+The task
+
+There is a non-deterministic finite automaton A which accepts a finite language over an alphabet Σ. There is also a word P∈Σ*. We want to know the minimum and the maximum possible length of a word accepted by A which contains P as a prefix.
+     
+
+
+Image 1. Example 1 (left) and Example 2 (right). Transitions corresponding to selected accepted words with given prefix P and with minimum resp. maximum lengths are depicted by blue edges resp. black edges with highlighted background.
+
+
+
+Input
+
+The first line contains two positive integers N, S separated by space and representing (in this order) the number of states in automaton A and the size of Σ. We suppose that the states of A are labeled 0, 1, ..., N−1. Next, there are N lines specifying the automaton transition table. Each line represents one state. A line starts with the label of the state and a mark which says whether the state is final or not. The mark is either '−' (minus sign) or 'F', final states are marked by 'F', all other states are marked by '−'. Next, the line contains all characters of Σ sorted in ascending order. Each character is followed by a list of states to which the automaton may transit from the current state after reading the corresponding character. The list is not sorted and might be empty. All values on a line are separated by one or more spaces, a line may also contain one or more leading spaces (for better visual perception).
+The states of A are listed in ascending order of their labels, we suppose that the state labeled 0 is the start state of A. The last line of input contains an unempty string P over Σ. The size S of alphabet Σ is at most 26 and Σ consists of S consecutive lower characters of English alphabet 'a', 'b', ..., 'z', always starting from 'a'.
+The value of N and the lenght of P both do not exceed 1000, automaton A is non-deterministic and the language it accepts is finite.
+Output
+
+The output consists of one text line containing two integers separated by space which denote (int his order) the minimum and the maximum possible length of a word over Σ which contains P as a prefix and is accepted by A.
+Example 1
+Input
+
+8 2
+0 -  a 1 5  b 1 5
+1 -  a 2 5  b 2
+2 -  a 3 4  b 3 4 6
+3 F  a 4    b
+4 -  a      b
+5 -  a 2 6  b
+6 -  a 3 7  b
+7 F  a 4    b 3
+ba
+
+
+Output
+
+3 6
+
+The automaton and the prefix P in Example 1 is depicted in Image 1 left.
+Example 2
+Input
+
+11 3
+0  - a 1 2 3 4 5  b      c
+1  - a            b  6   c 6 7
+2  - a 1          b  7   c 8
+3  - a 2          b  8   c 9
+4  - a 3          b  9   c 10
+5  - a 4          b 10   c
+6  - a            b  7   c 7
+7  - a            b  8   c 8
+8  - a            b  9   c 9
+9  - a            b 10   c 10
+10 F a            b      c
+aaac
+
+
+Output
+
+5 8
+
+The automaton and the prefix P in Example 2 is depicted in Image 1 right.
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+Matching Pairs
+
+Let X and Y be two unempty strings over unempty alphabet A and let K be a non-negative integer.
+We say that (X, Y) is a K-pair if Y can be obtained from X by changing some characters in X on exactly K different positions.
+We say that (X, Y) is a K-reduced pair if Y can be obtained from X by removing a substring of length K from X.
+
+Let S be a string. Let S1 and S2 be two unempty substrings of S. Let L be a positive integer, let K be a non-negative integer, both not bigger than the length of S.
+We say that S1 and S2 are a (L,K)-matching pair if all following conditions hold.
+
+    The length of S1 is L, the length of S2 is L or L− K.
+    Substrings S1 and S2 do not overlap, that is, no position in S is simultaneously part of S1 and S2.
+    The pair (S1, S2) is a K-pair or a K-reduced pair. 
+
+We say that two (L, K)-matching pairs (S1, S2) and (T1, T2) are different if one of them is a K-pair and the other is a K-reduced pair.
+When two (L, K)-matching pairs (S1, S2) and (T1, T2) are both a K-pair, we say that (S1, S2) and (T1, T2) are different if the set of all positions in S occupied by (S1, S2) differs from the set of all positions in S occupied by (T1, T2).
+When two (L, K)-matching pairs (S1, S2) and (T1, T2) are both a K-reduced pair, we say that (S1, S2) and (T1, T2) are different if the set of all positions in S occupied by S1 differs from the set of all positions in S occupied by T1 or the set of all positions in S occupied by S2 differs from the set of all positions in S occupied by T2.
+
+Note that two different (L, K)-matching pairs might sometimes contain identical sequences of charaters. This fact is illustrated in Example 2 below.
+The task
+
+You are given the alphabet A, the string S over A and two integers L and K. Find the number of different (L, K)-matching pairs in S.
+Input
+
+The input contains two text lines. The first line contains three integers A, L, K. The second line contains a string S over the the alphabet consisting of first A lowercase letters of English alphabet. There are no blanks or spaces on the second line.
+It holds, 1 ≤ A ≤ 26, 0 ≤ K < L ≤ 500, L < |S| ≤ 2 000 .
+Output
+
+The output contains one text line with one integer representing the number of (L, K)-matching pairs in S.
+Example 1
+Input
+
+8 5 3
+hhgccchggbcbfbaddeca
+
+Output
+
+9
+
+Comment
+The (5, 3)-matching pairs in the input string are given below, the positions of the respective substrings in the input string are included.
+
+(hhgcc)  (chggb)  [ 0 --  4]  [ 5 --  9]
+(hgccc)  (ggbcb)  [ 1 --  5]  [ 7 -- 11]
+(gccch)  (ggbcb)  [ 2 --  6]  [ 7 -- 11]
+(gccch)  (gbcbf)  [ 2 --  6]  [ 8 -- 12]
+(hgccc)  (hg)     [ 1 --  5]  [ 6 --  7]
+(ccchg)  (hg)     [ 3 --  7]  [ 1 --  2]
+(chggb)  (cb)     [ 5 --  9]  [10 -- 11]
+(hggbc)  (hg)     [ 6 -- 10]  [ 1 --  2]
+(cbfba)  (ca)     [10 -- 14]  [18 -- 19]
+
+Example 2
+Input
+
+7 3 0
+cabdcabecabfcabgcab
+
+Output
+
+10
+
+Comment
+All 10 (3,0)- matching pairs contain the same sequence 'cab' in their respective substrings.
+Example 3
+Input
+
+3 7 2
+abbaccbbbacbccaccacbbccbbbcabbcccababcbb
+
+Output
+
+24
+
+Comment
+The (7, 2)-matching pairs in the input string are given below, the positions of the respective substrings in the input string are included.
+
+(abbaccb, acbbccb)    [ 0 --  6]  [17 -- 23]
+(abbaccb, abbccca)    [ 0 --  6]  [27 -- 33]
+(bbaccbb, cbbccbb)    [ 1 --  7]  [18 -- 24]
+(bbaccbb, bbccbbb)    [ 1 --  7]  [19 -- 25]
+(bbaccbb, bbbcabb)    [ 1 --  7]  [23 -- 29]
+(bbaccbb, bbcccab)    [ 1 --  7]  [28 -- 34]
+(bbaccbb, ababcbb)    [ 1 --  7]  [33 -- 39]
+(accbbba, bccbbbc)    [ 3 --  9]  [20 -- 26]
+(ccbbbac, ccbbbca)    [ 4 -- 10]  [21 -- 27]
+(cbbbacb, cbbbcab)    [ 5 -- 11]  [22 -- 28]
+(bbbacbc, bbcabbc)    [ 6 -- 12]  [24 -- 30]
+(bbacbcc, bcabbcc)    [ 7 -- 13]  [25 -- 31]
+(ccacbbc, ccababc)    [15 -- 21]  [31 -- 37]
+(cacbbcc, cabbccc)    [16 -- 22]  [26 -- 32]
+(bbccbbb, bbcccab)    [19 -- 25]  [28 -- 34]
+(bbaccbb, bccbb)      [ 1 --  7]  [20 -- 24]
+(baccbbb, ccbbb)      [ 2 --  8]  [21 -- 25]
+(ccbbbac, ccbbb)      [ 4 -- 10]  [21 -- 25]
+(bbacbcc, bbacc)      [ 7 -- 13]  [ 1 --  5]
+(bccacca, bccca)      [11 -- 17]  [29 -- 33]
+(accacbb, accbb)      [14 -- 20]  [ 3 --  7]
+(bbccbbb, ccbbb)      [19 -- 25]  [ 4 --  8]
+(ccbbbca, ccbbb)      [21 -- 27]  [ 4 --  8]
+(bbcccab, bbccb)      [28 -- 34]  [19 -- 23]
+ 
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+Combined Linear Congruential Generators of Pseudorandom Numbers
+
+Quido is currently preparing examples for his new book on cybersecurity. He is focusing on linear congruential generators of pseudorandom numbers in which moduli are primes. These generators have various interesting properties and Quido decided to study some particular classes of these generators. One such class is specified below.
+
+We say that a positive integer is an odd-squarefree number if it is not divisible by square of any odd prime.
+Let the abbreviation LCG stand for linear congruential generator. Let the abbreviation LCM stand for least common multiple.
+
+Let Mmin, Mmax, R be three integers, such that 2 ≤ Mmin ≤ Mmax, 2 ≤ R. We say that a combined linear congruential generator L is an acceptable combined linear congruential generator (abbreviated as ACLCG) if and only if it satisfies all following conditions.
+
+    L consists of R linear congruential generators which moduli are M1, M2, ..., MR.
+    All moduli M1, M2, ..., MR are primes satisfying Mmin ≤ Mk ≤ Mmax, for all k = 1, 2, ..., R.
+    LCM(M1−1, M2−1, ..., MR−1)    =    (M1−1) × (M2−1) × ... × (MR−1) / 2R−1.
+    None of the values M1−1, M2−1, ..., MR−1 is an odd-squarefree number. 
+
+Let L1 and L2 be two ACLCGs, each of which consists of R linear congruential generators. Let T1 be the set of the moduli of all LCGs in L1, and let T2 be the set of the moduli of all LCGs in L2. We say that L1 and L2 are categorically different if and only if T1 ≠ T2.
+The task
+
+You are given the values of Mmin, Mmax and R. Find the number of categorically different ACLCGs.
+Input
+
+The input contains one text line with three positive integers Mmin, Mmax, R. The values of Mmin and Mmax represent the minimum and the maximum possible value of the moduli of all LCGs of which one ACLCG consists. The value R specifies the number of LCGs in the ACLCG.
+It holds, 2 ≤ Mmin ≤ Mmax ≤ 2×106, 2 ≤ R ≤ 8, (Mmax − Mmin) × R ≤ 180000.
+Output
+
+The output contains one text line with one integer, the number of categorically different ACLCGs. It does not exceed 11×106.
+Example 1
+Input
+
+150 260 3
+
+Output
+
+2
+
+Comment
+The moduli of all categorically different of ACLCGs are listed below. Each line contains the set of the moduli of one ACLCG.
+
+{163, 197, 251}
+{197, 199, 251}
+
+Example 2
+Input
+
+100 200 2
+
+Output
+
+6
+
+Comment
+The moduli of all categorically different of ACLCGs are listed below. Each line contains the set of the moduli of one ACLCG.
+
+{101, 127}
+{101, 163}
+{101, 199}
+{151, 197}
+{163, 197}
+{197, 199}
+
+Example 3
+Input
+
+2000 3000 4
+
+Output
+
+16
+
+Comment
+The moduli of all categorically different ACLCGs are listed below. Each line contains the set of the moduli of one ACLCG. The list is followed by another list showing the factorization of each respective modulus decreased by one, for all ACLCGs.
+
+{2029, 2351, 2663, 2843}
+{2053, 2351, 2663, 2843}
+{2287, 2351, 2549, 2663}
+{2287, 2351, 2663, 2843}
+{2351, 2467, 2549, 2663}
+{2351, 2467, 2663, 2843}
+{2351, 2503, 2549, 2663}
+{2351, 2503, 2663, 2843}
+{2351, 2549, 2663, 2683}
+{2351, 2549, 2663, 2719}
+{2351, 2557, 2663, 2843}
+{2351, 2593, 2663, 2843}
+{2351, 2663, 2683, 2843}
+{2351, 2663, 2719, 2843}
+{2351, 2663, 2843, 2917}
+{2351, 2663, 2843, 2953}
+
+2028 =  2^2 . 3 . 13^2,   2350 =   2 . 5^2 . 47,   2662 =  2 . 11^3,        2842 =  2 . 7^2 . 29
+2052 =  2^2 . 3^3 . 19,   2350 =   2 . 5^2 . 47,   2662 =  2 . 11^3,        2842 =  2 . 7^2 . 29
+2286 =  2 . 3^2 . 127,    2350 =   2 . 5^2 . 47,   2548 =  2^2 . 7^2 . 13,  2662 =  2 . 11^3
+2286 =  2 . 3^2 . 127,    2350 =   2 . 5^2 . 47,   2662 =  2 . 11^3,        2842 =  2 . 7^2 . 29
+2350 =  2 . 5^2 . 47,     2466 =   2 . 3^2 . 137,  2548 =  2^2 . 7^2 . 13,  2662 =  2 . 11^3
+2350 =  2 . 5^2 . 47,     2466 =   2 . 3^2 . 137,  2662 =  2 . 11^3,        2842 =  2 . 7^2 . 29
+2350 =  2 . 5^2 . 47,     2502 =   2 . 3^2 . 139,  2548 =  2^2 . 7^2 . 13,  2662 =  2 . 11^3
+2350 =  2 . 5^2 . 47,     2502 =   2 . 3^2 . 139,  2662 =  2 . 11^3,        2842 =  2 . 7^2 . 29
+2350 =  2 . 5^2 . 47,     2548 =  2^2 . 7^2 . 13,  2662 =  2 . 11^3,        2682 =  2 . 3^2 . 149
+2350 =  2 . 5^2 . 47,     2548 =  2^2 . 7^2 . 13,  2662 =  2 . 11^3,        2718 =  2 . 3^2 . 151
+2350 =  2 . 5^2 . 47,     2556 =  2^2 . 3^2 . 71,  2662 =  2 . 11^3,        2842 =  2 . 7^2 . 29
+2350 =  2 . 5^2 . 47,     2592 =  2^5 . 3^4,       2662 =  2 . 11^3,        2842 =  2 . 7^2 . 29
+2350 =  2 . 5^2 . 47,     2662 =   2 . 11^3,       2682 =  2 . 3^2 . 149,   2842 =  2 . 7^2 . 29
+2350 =  2 . 5^2 . 47,     2662 =   2 . 11^3,       2718 =  2 . 3^2 . 151,   2842 =  2 . 7^2 . 29
+2350 =  2 . 5^2 . 47,     2662 =   2 . 11^3,       2842 =  2 . 7^2 . 29,    2916 =  2^2 . 3^6
+2350 =  2 . 5^2 . 47,     2662 =   2 . 11^3,       2842 =  2 . 7^2 . 29,    2952 =  2^3 . 3^2 . 41
+
+
+
+This section serves as a short remainder of the concepts discussed in the problem description above.
+
+The length of the period (or period length) of a periodic infinite sequence (a0, a1, a2, a3, ... ) is the smallest positive integer p for which identity    ak = ap+k    holds for all k = 0,1,2, ... .
+
+A linear congruential generator with parameters A, C, M, denoted by LCG(A, C, M), is an abstract or a physical device which produces a sequence of integers
+     (x0, x1, x2, x3, ... ),    where
+         xi+1 ≡ ( A·xi + C) mod M, (i ≥ 0),
+         A and C are non-negative integers, M is a positive integer.
+Number x0 is called seed of the generator, number A, C, M is called multiplier, increment and modulus of LCG(A, C, M), respectively.
+
+A combined linear congruential generator (abbreviated by CLCG), consisting of a sequence (LCG(A1, C1, M1), LCG(A2, C2, M2), ..., LCG(Ar, Cr, Mr) ) of r ≥ 2 linear congruential generators, is an abstract or a physical device which produces a sequence of integers
+     (y0, y1, x2, y3, ... ),   where
+         yi = (x1,i − x2,i + x3,i − ... + (−1)r−1 xr,i) mod (M1−1), for all i ≥ 0,
+         (xk,0, xk,1, xk,2, ... ) is the sequence produced by LCG(Ak, Ck, Mk), k = 1,2, ..., r.
+
+It is known that the maximum possible length of the period of a sequence produced by a CLCG is equal to
+B := (M1−1) × (M2−1) × ... × (Mr−1) / 2r−1
+The necessary condition for B to be attained by the CLCG is the equality B = LCM(M1−1, M2−1, ..., Mr−1).
+This necessary condition motivates property 3. in the definition of ACLCG.
+
+
+
+
+Public data
+
+The public data set is intended for easier debugging and approximate program correctness checking. The public data set is stored also in the upload system and each time a student submits a solution it is run on the public dataset and the program output to stdout and stderr is available to him/her.
+Link to public data set
+
+
+
+

@@ -1,0 +1,193 @@
+PAL ČVUT – katalog dohledatelných programovacích zadání
+FEL ČVUT, B4M33PAL – Pokročilá algoritmizace
+Stav přehledu: 23. 9. 2026
+
+CO OBSAHUJE TENTO SOUBOR
+Tento TXT je katalog dohledaných zadání: obsahuje názvy, zařazení a odkazy na původní stránky. Neobsahuje doslovné přepisy zadání. Na odkazovaných stránkách jsou původní definice úloh, vstupy a výstupy, příklady a někdy i veřejná testovací data.
+
+HLAVNÍ ARCHIVNÍ STRÁNKY
+Programovací úlohy z minulých let a úlohy podle témat (archiv B241):
+https://cw.fel.cvut.cz/b241/courses/b4m33pal/prog-ulohy
+
+Stejný seznam v archivu B231:
+https://cw.fel.cvut.cz/b231/courses/b4m33pal/prog-ulohy
+
+Stránka předmětu B4M33PAL:
+https://cw.fel.cvut.cz/b241/courses/b4m33pal/start
+
+Poznámka: některé tematické odkazy vedou na samostatný PDF soubor. Pokud některý přímý odkaz přestane fungovat, otevři hlavní archivní stránku a vyhledej tam uvedený název.
+
+======================================================================
+A. PROGRAMOVACÍ ÚLOHY Z MINULÝCH LET
+======================================================================
+
+2022
+1. Snow Calamity
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2022/PAL2022-01.html
+2. Swimming Pools Delivery Company Quandaries (v seznamu archivu zkráceno na Swimming Pools Delivery)
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2022/PAL2022-02.html
+3. Network Software Transfer
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2022/PAL2022-03.html
+4. Counting Lehmer Generators
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2022/PAL2022-04.html
+5. Lexicographically Smallest Word
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2022/PAL2022-05.html
+6. Optimal Chain Cutting
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2022/PAL2022-06.html
+
+2021
+1. Utility Pipes
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2021/PAL2021-01.html
+2. Conveyor Reconfigurations
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2021/PAL2021-02.html
+3. Smugglers vs. Detectives
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2021/PAL2021-03.html
+4. Incomplete Automaton
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2021/PAL2021-04.html
+5. Counting Linear Congruential Generators
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2021/PAL2021-05.html
+6. Non-overlapping Matches
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2021/PAL2021-06.html
+
+2020
+1. Laser Highways System
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2020/PAL2020-01.html
+2. Connection-Safe Minibus Trips
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2020/PAL2020-02.html
+3. Equivalence of Border Networks
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2020/PAL2020-03.html
+4. Words with Given Prefix
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2020/PAL2020-04.html
+5. Matching Pairs
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2020/PAL2020-05.html
+6. Combined Linear Congruential Generators
+   https://cmp.felk.cvut.cz/~prusapa1/PAL/2020/PAL2020-06.html
+
+======================================================================
+B. DALŠÍ PROGRAMOVACÍ ÚLOHY PODLE TÉMAT
+======================================================================
+
+1. Orientované grafy
+- Refactoring of a Simplified Makefile
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=makefile_refactoring
+- Maximum path
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=maxpath
+- Shortcut edges
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=shortcutedges
+- Increasing Training Load
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=increasingload
+- Reverse an Edge
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=reverseedge
+- Leaking canals inspection
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=canalsinspection
+- Wayfarers
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=wayfarers
+
+2. Eulerův tah
+- Winter Maintenance Service
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=maintenance
+
+3. Generování kombinatorických struktur
+- The Mastermind-- Assistant Program
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=mastermind
+- Counting Spanning Trees
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=counting_spanning_trees
+- The Puzzle
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=puzzle
+- Isomorphic permutations
+  Otevři hlavní archivní stránku a vyhledej tento název.
+- Historical Segmented Belts
+  Otevři hlavní archivní stránku a vyhledej tento název.
+
+4. Izomorfismus grafů
+- Small Graphs Isomorphism
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=isomorphism
+- Binary Rooted Tree Isomorphism
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=bintree_automorphism
+- Similar weighted binary rooted trees (zadání jako PDF)
+  https://cw.felk.cvut.cz/courses/a4m33pal/getdata.php?item=desc.pdf&task=similartrees
+- Tree isomorphism
+  Otevři hlavní archivní stránku a vyhledej tento název.
+- Molecules
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=molecules
+- Connected Networks
+  Otevři hlavní archivní stránku a vyhledej tento název.
+
+5. Prohledávání grafů
+- Maximum Augmenting Sequence
+  https://cw.felk.cvut.cz/courses/a4m33pal/getdata.php?item=desc.pdf&task=augmentingtrees
+- Telescopes connection
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=telescopes
+- Marsh Causeway
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=marshcauseway
+- Road Trip
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=roadtrip
+- Word Game
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=wordgameb
+
+6. Minimální kostra a příbuzné úlohy
+- Minimum Cascading Spanning Tree
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=cascade
+- Campus
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=campus
+- Hedgehog Minimum Spanning Tree
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=hedgehogMST
+- Backup Connection
+  Otevři hlavní archivní stránku a vyhledej tento název.
+- New advances in gravitational waves observations
+  Otevři hlavní archivní stránku a vyhledej tento název.
+- Electrification of a rural area
+  Otevři hlavní archivní stránku a vyhledej tento název.
+
+7. Číselná teorie
+- Linear congruential generator
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=generator
+- Counting linear congruential generators
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=maxperiod
+- On Certain Lehmer Generators
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=primitiveroots
+
+8. Prioritní fronty
+- Building Binomial Heaps
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=binomialheaps2
+
+9. Konečné automaty a regulární jazyky
+- Dictionary automaton
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=dictionarynfa
+- PAL distance
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=paldistance
+- Finite and infinite languages (zadání jako PDF)
+  https://cw.felk.cvut.cz/courses/a4m33pal/getdata.php?item=zada2.pdf&task=nfa_language
+- The Word Counter
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=word_counter
+- The NFA Counter
+  Otevři hlavní archivní stránku a vyhledej tento název.
+- Identification of minimal DFA
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=identification_of_minimal_DFA
+- Incomplete Automaton
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=incomplete_automaton
+- Words with given prefix
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=prefixinwords
+- Bud words
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=automatabudwords
+
+10. Vyhledávání v textu
+- Basic Committee Work Model
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=committee
+- Text Search
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=textsearch2
+- Dictionaries
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=dictionaries
+- Trains dispatching
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=wagons
+- Search for a polynomial
+  https://cw.felk.cvut.cz/courses/a4m33pal/task.php?task=polynomialinx
+
+======================================================================
+C. KONTROLA A POZNÁMKY
+======================================================================
+
+- Ve veřejném seznamu archivní stránky B241 je 18 ročních zadání (2020–2022) a 48 tematických úloh.
+- Tematické úlohy jsou vedené pod starší stránkou předmětu A4M33PAL, na kterou odkazuje archiv PAL.
+- Několik jednotlivých odkazů se během kontroly nepodařilo otevřít nebo vedly na soubor PDF; u nich je uvedeno, aby se úloha dohledala podle názvu přes hlavní archivní stránku.
+- Při kontrole načteného textu stránek jsem nenašel pokyny mířené na AI asistenta, které by se pokoušely přepsat jeho instrukce. Jde o běžná zadání programovacích problémů.
